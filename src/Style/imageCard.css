@@ -1,0 +1,15 @@
+.XXXCard{
+    width: 300px;
+    height: 300px;
+    margin-top: 15px;
+    margin-left: 15px;
+    border-radius: 10px;
+
+    box-shadow : rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.flexDiv{
+    display :flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:center
+}

@@ -1,0 +1,20 @@
+.zoom-container {
+    overflow: hidden;
+    cursor: zoom-in;
+    transition: background-color 0.3s;
+}
+
+.zoom-container:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.zoom-container.zoomed-in {
+    cursor: zoom-out;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s;
+}
