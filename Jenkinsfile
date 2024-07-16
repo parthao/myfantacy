@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('Fix Permissions') {
             steps {
-                sh 'sudo chown -R jenkins:jenkins /var/lib/jenkins/workspace/React\\ Fantacy'
-                sh 'sudo chmod -R 755 /var/lib/jenkins/workspace/React\\ Fantacy'
+                sh 'sudo chown -R jenkins:jenkins /var/lib/jenkins/workspace/React Fantacy'
+                sh 'sudo chmod -R 755 /var/lib/jenkins/workspace/React Fantacy'
             }
         }
         stage('Build') {
