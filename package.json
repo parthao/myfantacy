@@ -25,7 +25,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "BUILD_PATH='/var/www/html/build' react-scripts build",
+    "build": "BUILD_PATH='/var/www/html/react_fantacy/build' react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
