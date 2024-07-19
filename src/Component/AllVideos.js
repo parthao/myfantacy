@@ -1,28 +1,22 @@
-import React from 'react';
+import React from "react";
 import { Modal, Backdrop, Fade, makeStyles } from "@material-ui/core";
 import { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
-
   modal: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     "&:hover": {
-      backgroundcolor: "red"
-    }
+      backgroundcolor: "red",
+    },
   },
   img: {
-    outline: "none"
-  }
+    outline: "none",
+  },
 }));
 
-const videos = require.context("../Assets/LongAPP", false, /\.(mp4)$/)
-
-const videoList = videos.keys().map(videox => videos(videox));
-
 const AllVideos = () => {
-
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [modalVideo, setmodalVideo] = useState("false");
@@ -32,17 +26,30 @@ const AllVideos = () => {
   };
 
   const handleVideo = (value) => {
-    debugger
+    debugger;
     setmodalVideo(value);
     setOpen(true);
     console.log(modalVideo);
   };
 
-  return (
-    <div className='flexDiv col-lg-12 col-xs-1'>
-      {videoList.map((video, index) => (
-        <video className="XXXCard" key={index} src={video} alt={`image-${index}`} onClick={(e) => handleVideo(video)} />
+  useEffect(() => {
+    GetImages.getImages()
+      .then((resp) => {
+        setImages(resp.data);
+      })
+      .catch((error) => {});
+  }, []);
 
+  return (
+    <div className="flexDiv col-lg-12 col-xs-1">
+      {videoList.map((video, index) => (
+        <video
+          className="XXXCard"
+          key={index}
+          src={video}
+          alt={`image-${index}`}
+          onClick={(e) => handleVideo(video)}
+        />
       ))}
 
       <Modal
@@ -52,9 +59,9 @@ const AllVideos = () => {
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
-          timeout: 500
-        }}>
-
+          timeout: 500,
+        }}
+      >
         <Fade in={open} timeout={500} className={classes.img}>
           <video
             controls
@@ -66,6 +73,6 @@ const AllVideos = () => {
       </Modal>
     </div>
   );
-}
+};
 
 export default AllVideos;
