@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Header";
 import AllImages from "./AllImages";
 import { Routes, Route } from "react-router-dom";
-// import AllVideos from './AllVideos';
+import AllVideos from "./AllVideos";
 
 const Landing = () => {
   return (
@@ -10,7 +10,7 @@ const Landing = () => {
       <Header></Header>
       <Routes>
         <Route exact path="/" element={<AllImages />}></Route>
-        {/* <Route exact path="/videos" element={<AllVideos />}></Route> */}
+        <Route exact path="/videos" element={<AllVideos />}></Route>
       </Routes>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import { Modal, Backdrop, Fade, makeStyles } from "@material-ui/core";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import GetVideos from "../service/get.videos";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -20,7 +21,7 @@ const AllVideos = () => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [modalVideo, setmodalVideo] = useState("false");
-
+  const [videoList, setvideoList] = useState([]);
   const handleClose = () => {
     setOpen(false);
   };
@@ -33,9 +34,9 @@ const AllVideos = () => {
   };
 
   useEffect(() => {
-    GetImages.getImages()
+    GetVideos.getVideos()
       .then((resp) => {
-        setImages(resp.data);
+        setvideoList(resp.data);
       })
       .catch((error) => {});
   }, []);

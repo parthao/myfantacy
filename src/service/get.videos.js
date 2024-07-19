@@ -1,7 +1,7 @@
 import client from "../http-user";
 
-const getImages = () => {
-  return client.get("/images");
+const getVideos = () => {
+  return client.get("/videos");
 };
 
-export default { getImages };
+export default { getVideos };
